@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Тренеры по открытой воде в Кейптауне — Robben Island</title>
+<style>
+:root{
+--bg:#f7f7f5; --card:#fff; --text:#1d1d1f; --muted:#6b6b70; --line:#e4e4e0;
+--accent:#0b6e99; --green:#1f8a4c; --yellow:#b58105; --red:#c0392b;
+--chip:#eef3f6;
+}
+@media (prefers-color-scheme: dark){
+:root{ --bg:#141416; --card:#1d1d20; --text:#ececee; --muted:#9a9aa2; --line:#2e2e33;
+--accent:#5cb8e6; --green:#4cc27e; --yellow:#e0b440; --red:#ef6b5c; --chip:#25303a; }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);
+font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.wrap{max-width:1500px;margin:0 auto;padding:32px 20px 60px}
+h1{font-size:28px;margin:0 0 6px}
+.sub{color:var(--muted);margin:0 0 24px}
+.summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-bottom:24px}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.tile b{display:block;font-size:13px;color:var(--muted);font-weight:600;margin-bottom:4px}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px}
+.filters button{border:1px solid var(--line);background:var(--card);color:var(--text);
+border-radius:999px;padding:6px 14px;font:inherit;font-size:13px;cursor:pointer}
+.filters button.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.tablebox{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:12px}
+table{border-collapse:collapse;width:100%;min-width:1250px}
+th,td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
+th{position:sticky;top:0;background:var(--card);font-size:12px;text-transform:uppercase;
+letter-spacing:.04em;color:var(--muted);z-index:1}
+tr:last-child td{border-bottom:none}
+tr.out td{opacity:.55}
+td.name b{font-size:15px}
+td.name .type{display:inline-block;margin-top:4px;font-size:12px;background:var(--chip);
+border-radius:6px;padding:1px 8px;color:var(--muted)}
+.status{display:inline-block;font-size:13px;font-weight:600;border-radius:8px;padding:3px 9px;white-space:nowrap}
+.s-booked{background:rgba(31,138,76,.14);color:var(--green)}
+.s-wait{background:rgba(11,110,153,.13);color:var(--accent)}
+.s-new{background:var(--chip);color:var(--muted)}
+.s-no{background:rgba(192,57,43,.12);color:var(--red)}
+.todo{display:block;margin-top:6px;font-size:13px;color:var(--red);font-weight:600}
+.ow{font-weight:700;white-space:nowrap}
+.ow.g{color:var(--green)} .ow.y{color:var(--yellow)} .ow.r{color:var(--red)}
+.small{font-size:13px;color:var(--muted)}
+a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+.contacts div{white-space:nowrap}
+section.notes{margin-top:28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px}
+section.notes .tile p{margin:6px 0}
+footer{margin-top:28px;color:var(--muted);font-size:13px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Тренеры по открытой воде в Кейптауне</h1>
+<p class="sub">Подготовка к переправе Robben Island → Big Bay (7,4 км, вода 12–15 °C). Данные на 14.11.2026.</p>
+
+<div class="summary">
+<div class="tile"><b>Следующий шаг</b>Пробное занятие с Karen (OceanFit): <strong>чт 19.11, 16:30</strong>, бассейн Jan van Riebeeck</div>
+<div class="tile"><b>Не забыть</b>💸 Перевести <strong>R400</strong> OceanFit до занятия: напоминание стоит на ср 18.11 в 10:00</div>
+<div class="tile"><b>Ждём ответа</b>Wave Workouts (Michelle Weber), MMD Aquatics (Maik)</div>
+<div class="tile"><b>Про отзывы</b>Независимых отзывов (Google, Reddit, HelloPeter) не нашлось ни на одного тренера. Все отзывы взяты с их собственных сайтов</div>
+</div>
+
+<div class="filters" id="filters">
+<button class="on" data-f="all">Все</button>
+<button data-f="active">В работе</button>
+<button data-f="new">Ещё не писала</button>
+<button data-f="g">🟢 Опыт подтверждён</button>
+<button data-f="out">Не подходят</button>
+</div>
+
+<div class="tablebox">
+<table>
+<thead><tr>
+<th>Тренер / школа</th>
+<th>Статус</th>
+<th>Коротко</th>
+<th>Опыт в открытой воде</th>
+<th>Локация: бассейн</th>
+<th>Локация: открытая вода</th>
+<th>Цены</th>
+<th>Контакты</th>
+<th>Сайт / Instagram</th>
+</tr></thead>
+<tbody>
+
+<tr data-s="active" data-ow="g">
+<td class="name"><b>Karen Kennedy</b><br>OceanFit<br><span class="type">Тренер + группы</span></td>
+<td><span class="status s-booked">📅 Пробное 19.11, 16:30</span><span class="todo">💸 Перевести R400 заранее</span></td>
+<td>Программа подготовки к Robben Island на 12–24 недели, «скорость не важна». В отзывах её называют внимательной, «твёрдой, но мягкой», хвалят чёткую структуру</td>
+<td><span class="ow g">🟢 Сильный</span><br>Тройная переправа Robben Island без гидрокостюма (рекорд). Её ученики прошли переправу: Simon Blundell, Althea Le Roux, Kelly Lenford</td>
+<td>Hoërskool Jan van Riebeeck, Gardens: пн и чт в 06:45, 08:00 и 17:00, пт в 06:45 и 08:00</td>
+<td>Big Bay / Clifton / False Bay. В группе только по средам в 06:30, по погоде</td>
+<td>Индивидуально: бассейн — R400 за 30 мин, океан — R500 за 45 мин<br>Группа: R655–1680 в месяц (1–5 раз в неделю)<br>Разово: R170</td>
+<td class="contacts"><div>WhatsApp +27 83 375 7503</div><div>karen@oceanfit.co.za</div></td>
+<td><a href="https://oceanfit.co.za/" target="_blank">oceanfit.co.za</a><br><a href="https://www.instagram.com/oceanfitcapetown/" target="_blank">@oceanfitcapetown</a></td>
+</tr>
+
+<tr data-s="active" data-ow="g">
+<td class="name"><b>Michelle Weber</b><br>Wave Workouts Swim School<br><span class="type">Школа</span></td>
+<td><span class="status s-wait">✉️ Написала, ждём ответа</span></td>
+<td>Уровни от постановки техники к группам и программам Robben Island и Ла-Манш. Есть онлайн-план</td>
+<td><span class="ow g">🟢 Очень сильный</span><br>Дважды выступала на Олимпийских играх в открытой воде, рекорд Robben Island среди женщин, переплыла Ла-Манш. Пишет, что подготовила 100+ человек к переправе (без независимого подтверждения)</td>
+<td>Sea Point Pavilion · Pinelands · Stellenbosch (Coetzenburg) · Franschhoek</td>
+<td>На сайте указана только Franschhoek (Berg River Dam). Про океан в Sea Point уточняем</td>
+<td>Robben Island онлайн: от R1100 в месяц (6 мес) или от R2400 в месяц (3 мес). Членам CLDSA скидка 15%</td>
+<td class="contacts"><div>WhatsApp +27 72 585 1016 <span class="small">(номер школы)</span></div><div>contact@waveworkouts.com</div></td>
+<td><a href="https://waveworkouts.com/" target="_blank">waveworkouts.com</a><br><a href="https://www.instagram.com/wave_workouts/" target="_blank">@wave_workouts</a><br><a href="https://www.instagram.com/michelleweber_sa/" target="_blank">@michelleweber_sa</a></td>
+</tr>
+
+<tr data-s="active" data-ow="g">
+<td class="name"><b>Maik Mahadeo-Diercks</b><br>MMD Aquatics<br><span class="type">Тренер / клуб</span></td>
+<td><span class="status s-wait">✉️ Написала, ждём ответа</span></td>
+<td>Магистр спортивных наук, тренирует больше 20 лет. Упор на технику, а не на объём</td>
+<td><span class="ow g">🟢 Подтверждён</span><br>Сертификат тренера по открытой воде WOWSA (2023). В 2014 году CLDSA признала его пловцом года на открытой воде. С 2014 года готовит детей из Homestead к Robben Island без гидрокостюмов</td>
+<td>Sea Point Pavilion, центр Кейптауна</td>
+<td>Конкретных мест не нашла</td>
+<td>—</td>
+<td class="contacts"><div>+27 68 259 6325</div></td>
+<td><a href="https://mmdaquatics.com/" target="_blank">mmdaquatics.com</a><br><a href="https://www.instagram.com/mmdaquatics/" target="_blank">@mmdaquatics</a></td>
+</tr>
+
+<tr data-s="new" data-ow="g">
+<td class="name"><b>Scott Tait</b><br>Swim Cape Town<br><span class="type">Тренер + заплывы</span></td>
+<td><span class="status s-new">Не писала</span></td>
+<td>Помогает начать в открытой воде, готовит к Robben Island, Ла-Маншу и Ironman. Учит «читать» воду</td>
+<td><span class="ow g">🟢 Сильный</span><br>Шесть лет проводит ежемесячные заплывы ATB, организует Fish Hoek Mile и False Bay Express на 6 км. Сколько его учеников проплыли Robben Island, не нашла</td>
+<td>—</td>
+<td>False Bay: Long Beach в Simon's Town, Fish Hoek</td>
+<td>—</td>
+<td class="contacts"><div>+27 76 156 2619</div><div>swimcapetown@gmail.com</div></td>
+<td><a href="https://swimcapetown.co.za/" target="_blank">swimcapetown.co.za</a><br><a href="https://www.instagram.com/swimcapetown/" target="_blank">@swimcapetown</a></td>
+</tr>
+
+<tr data-s="new" data-ow="y">
+<td class="name"><b>Hilton Slack</b><br>Swimlab Aquatic Academy<br><span class="type">Академия</span></td>
+<td><span class="status s-new">Не писала</span></td>
+<td>Работает с 2010 года, нацелена на результат. Есть группы для взрослых (masters) и триатлонистов. Руководитель раньше был главным тренером UCT и возглавлял юниорские сборные ЮАР</td>
+<td><span class="ow y">🟡 Слабо подтверждён</span><br>Открытая вода упоминается только общей строкой в описании клуба, связи с Robben Island не нашла. Сильная сторона — бассейн и техника</td>
+<td>Wynberg Military Aquatic Centre, 25 м, крытый подогреваемый</td>
+<td>Не указана</td>
+<td>—</td>
+<td class="contacts"><div>+27 82 784 3800</div><div>021 797 9355</div><div>coach@swimlab.co.za</div></td>
+<td>Сайт не открывается (ошибка SSL)<br><a href="https://www.facebook.com/Swimlabsa" target="_blank">Facebook</a><br><a href="https://www.instagram.com/swimlabcoach/" target="_blank">@swimlabcoach</a></td>
+</tr>
+
+<tr data-s="new" data-ow="r">
+<td class="name"><b>Trevor Ferrier</b><br>Trevor's Swim School<br><span class="type">Школа (бассейн)</span></td>
+<td><span class="status s-new">Не писала</span></td>
+<td>Ставит технику взрослым, от новичков до Ironman. В отзывах — очень терпеливый. Первая консультация бесплатно</td>
+<td><span class="ow r">🔴 Не подтверждён</span><br>Открытая вода есть только в списке услуг. В основном учит детей. Вариант только для техники</td>
+<td>Pinelands, 2 Links Drive, крытый подогреваемый</td>
+<td>Не указана</td>
+<td>—</td>
+<td class="contacts"><div>+27 84 764 0135</div><div>info@trevorsswimschool.co.za</div></td>
+<td><a href="https://trevorsswimschool.co.za/" target="_blank">trevorsswimschool.co.za</a><br><span class="small">Instagram не нашла</span></td>
+</tr>
+
+<tr data-s="new" data-ow="y">
+<td class="name"><b>Joyce Blows</b><br>Phoenix Open Water Swimming Club<br><span class="type">Клуб</span></td>
+<td><span class="status s-new">Не писала</span></td>
+<td>Клуб открытой воды с 2009 года</td>
+<td><span class="ow y">🟡 Слабо подтверждён</span><br>Регулярные заплывы в океане, но про тренерскую квалификацию и Robben Island ничего не нашла</td>
+<td>Goodwood Swimming Pool</td>
+<td>Лето: пн и ср вечером, пт утром — Clifton; чт и сб утром — False Bay. Зима: сб утром</td>
+<td>—</td>
+<td class="contacts"><div>+27 83 648 4338</div></td>
+<td><a href="https://www.facebook.com/PhoenixOpenWaterSwimmingClub/" target="_blank">Facebook</a></td>
+</tr>
+
+<tr data-s="new" data-ow="y">
+<td class="name"><b>FUNdamental Swimming</b><br>Claire Amner и другие<br><span class="type">Школа</span></td>
+<td><span class="status s-new">Не писала</span></td>
+<td>По данным CLDSA, тренируют сильные пловцы на открытой воде</td>
+<td><span class="ow y">🟡 Слабо подтверждён</span><br>Подробностей не нашла</td>
+<td>The Quadrant, Claremont</td>
+<td>Не указана</td>
+<td>—</td>
+<td class="contacts"><div class="small">email скрыт на сайте CLDSA</div></td>
+<td><a href="https://cldsa.co.za/resources/" target="_blank">карточка на сайте CLDSA</a></td>
+</tr>
+
+<tr data-s="new" data-ow="y">
+<td class="name"><b>Gary Freeling</b><br>Wynberg Military Base<br><span class="type">Группы</span></td>
+<td><span class="status s-new">Не писала</span></td>
+<td>Группы почти каждый день</td>
+<td><span class="ow y">🟡 Не проверен</span><br>Указан в каталоге CLDSA, подробностей нет</td>
+<td>Wynberg Military Base</td>
+<td>Не указана</td>
+<td>—</td>
+<td class="contacts"><div>+27 82 216 3633</div></td>
+<td>—</td>
+</tr>
+
+<tr data-s="new" data-ow="y">
+<td class="name"><b>Nicol Müller</b><br>Embark<br><span class="type">Тренер по триатлону</span></td>
+<td><span class="status s-new">Не писала</span></td>
+<td>В 2022 году вела 13-недельную программу подготовки к Robben Island. Идёт ли она сейчас, неизвестно</td>
+<td><span class="ow y">🟡 Частично</span><br>Провела через переправу 5 групп (данные 2022 года)</td>
+<td>—</td>
+<td>Blouberg</td>
+<td>В 2022 году: R500 в месяц</td>
+<td class="contacts"><div>nicol@embark.co.za</div></td>
+<td><a href="https://embark.co.za/" target="_blank">embark.co.za</a></td>
+</tr>
+
+<tr data-s="new" data-ow="y">
+<td class="name"><b>Sue Young</b><br>Swimfast<br><span class="type">Онлайн</span></td>
+<td><span class="status s-new">Не писала</span></td>
+<td>Базируется в Йоханнесбурге: онлайн-планы и видеоанализ техники</td>
+<td><span class="ow y">🟡 Частично</span><br>Есть гайд по Robben Island</td>
+<td>Йоханнесбург</td>
+<td>—</td>
+<td>—</td>
+<td class="contacts"><div>+27 71 870 8083</div></td>
+<td><a href="https://www.swimfast.co.za/" target="_blank">swimfast.co.za</a><br><a href="https://www.instagram.com/swimfast.co.za/" target="_blank">@swimfast.co.za</a></td>
+</tr>
+
+<tr class="out" data-s="out" data-ow="g">
+<td class="name"><b>Maryse Pretorius</b><br>Cape Town Open Water Swim Co.<br><span class="type">Школа</span></td>
+<td><span class="status s-no">❌ Не подходит</span></td>
+<td>12-недельная программа к Robben Island. Уже занималась, стиль не подошёл</td>
+<td><span class="ow g">🟢 Подтверждён</span></td>
+<td>—</td>
+<td>Clifton 4th, Long Beach в Simon's Town</td>
+<td>—</td>
+<td class="contacts"><div>+27 71 878 7941</div></td>
+<td><a href="https://capetownswim.com/" target="_blank">capetownswim.com</a><br><a href="https://www.instagram.com/capetownswim" target="_blank">@capetownswim</a></td>
+</tr>
+
+<tr class="out" data-s="out" data-ow="g">
+<td class="name"><b>Britt Hyland</b><br>K8 Coaching / Aqua Sharks Atlantic<br><span class="type">Тренер + группы</span></td>
+<td><span class="status s-no">❌ Не подходит</span></td>
+<td>Уже занималась, стиль не подошёл</td>
+<td><span class="ow g">🟢 Подтверждён</span><br>9 переправ Robben Island</td>
+<td>Camps Bay, Virgin Active The Point</td>
+<td>Clifton (по четвергам), каналы Waterfront</td>
+<td>R750–1350 в месяц</td>
+<td class="contacts"><div>+27 82 337 2885</div></td>
+<td><a href="https://k8coaching.co.za/" target="_blank">k8coaching.co.za</a><br><a href="https://www.instagram.com/k8coaching" target="_blank">@k8coaching</a></td>
+</tr>
+
+<tr class="out" data-s="out" data-ow="r">
+<td class="name"><b>Cybersmart Aquatics</b><br><span class="type">Школа / клуб</span></td>
+<td><span class="status s-no">❌ Не подходит</span></td>
+<td>Общалась с ними раньше</td>
+<td><span class="ow r">🔴 Не подтверждён</span></td>
+<td>Milnerton High School, 48 Pienaar Rd</td>
+<td>—</td>
+<td>—</td>
+<td class="contacts"><div>021 286 0511</div></td>
+<td><a href="https://www.cybersmartaquatics.com/" target="_blank">cybersmartaquatics.com</a><br><a href="https://www.instagram.com/cybersmartaquatics/" target="_blank">@cybersmartaquatics</a></td>
+</tr>
+
+</tbody>
+</table>
+</div>
+
+<section class="notes">
+<div class="tile"><b>Бесплатные групповые заплывы (для практики)</b>
+<p><strong>Sunday Hot Chocolate</strong>: Camps Bay, по воскресеньям в 9:00, около 1,5 км. Новичкам помогают</p>
+<p><strong>Big Bay WhatsApp</strong>: Monéne Murray +27 82 570 2917, Michelle Petring +27 83 269 8673</p>
+<p><strong>Atlantic Seaboard WhatsApp</strong>: Delle Henry +27 83 292 2928</p>
+</div>
+<div class="tile"><b>Лодка сопровождения в день заплыва (скипперы CLDSA)</b>
+<p>Derrick Frazer (Big Bay Events) +27 82 770 5798 · Michelle Petring +27 83 269 8673 · Gregory Player +27 82 873 1962 · Jonathan Dawson +27 83 968 0232 · Roger Finch +27 83 250 0392</p>
+<p class="small">Список на сайте <a href="https://cldsa.co.za/members/skippers/" target="_blank">cldsa.co.za</a></p>
+</div>
+<div class="tile"><b>CLDSA</b>
+<p>Без членства переправу не засчитают. Взнос — R400 в год, год членства с 1 июля по 30 июня. Членам скидка 15% у Wave Workouts и Big Bay Events</p>
+<p class="small"><a href="https://cldsa.co.za/shop/membership/" target="_blank">Членство</a> · <a href="https://cldsa.co.za/resources/" target="_blank">Каталог групп и тренеров</a></p>
+</div>
+</section>
+
+<footer>🟢 опыт в открытой воде подтверждён · 🟡 слабо подтверждён или не проверен · 🔴 не подтверждён. Источники: сайты тренеров, CLDSA, Big Bay Events, Daily Maverick, Skyways.</footer>
+</div>
+<script>
+const btns=document.querySelectorAll('#filters button'), rows=document.querySelectorAll('tbody tr');
+btns.forEach(b=>b.addEventListener('click',()=>{
+btns.forEach(x=>x.classList.remove('on')); b.classList.add('on');
+const f=b.dataset.f;
+rows.forEach(r=>{
+const show = f==='all' || r.dataset.s===f || (f==='g' && r.dataset.ow==='g' && r.dataset.s!=='out');
+r.style.display = show ? '' : 'none';
+});
+}));
+</script>
+</body>
+</html>
